@@ -1,4 +1,4 @@
-// 4 Channel Transmitter
+// 6 Channel Transmitter
 
 #include <SPI.h>
 #include <nRF24L01.h>
@@ -53,9 +53,9 @@ void loop()
 
 //data.throttle = mapJoystickValues( analogRead(A0), 524, 524, 1015, true );
 data.throttle = mapJoystickValues( analogRead(A0), 12, 524, 1020, false );
-data.roll = mapJoystickValues( analogRead(A1), 12, 524, 1020, false );      // "true" or "false" for servo direction
+data.roll = mapJoystickValues( analogRead(A1), 12, 524, 1020, true );      // "true" or "false" for servo direction
 data.pitch = mapJoystickValues( analogRead(A2), 12, 524, 1020, true );     // "true" or "false" for servo direction
-data.yaw = mapJoystickValues( analogRead(A3), 12, 524, 1020, false );       // "true" or "false" for servo direction
+data.yaw = mapJoystickValues( analogRead(A3), 12, 524, 1020, true );       // "true" or "false" for servo direction
 
 radio.write(&data, sizeof(Signal));
 }
